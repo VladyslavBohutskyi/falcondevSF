@@ -1,27 +1,32 @@
-{{ 'header.css' | asset_url | stylesheet_tag }}
+{{ 's-header.css' | asset_url | stylesheet_tag }}
 
 <section class="s-header">
   <header>
-    <div class="menu_ribbon"></div>
+    <div class="menu-ribbon"></div>
     <div class="main-block">
       <div class="main-block__search">
-        {% render 'icon-custom-search' %}
-        <p>Search</p>
+        <button class="custom-hover">
+          <span>{% render 'icon-custom-search' %}</span>
+          <span>Search</span>
+        </button>
       </div>
       <div class="main-block__menu">
         <div class="main-block__menu_logo">
-          {% render 'logo-loro-piana' %}
+          <a href="/" class="custom-hover">{% render 'logo-loro-piana' %}</a>
+          
         </div>
-        <div class="main-block__menu_links">
-          {% for link in linklists.loro-menu.links -%}
-            {{ link.title | link_to: link.url }}
-          {%- endfor %}
-        </div>
+        <nav class="main-block__menu_links">
+          <ul>
+            {% for link in linklists.loro-menu.links -%}
+                <li>{{ link.title | link_to: link.url }}</li>
+            {%- endfor %}
+          </ul>
+        </nav>
       </div>
       <div class="main-block__cart">
-        {% render 'icon-user' %}
-        {% render 'icon-bookmark' %}
-        {% render 'icon-handbag' %}
+        <a href="#" class="custom-hover">{% render 'icon-user' %}</a>
+        <a href="#" class="custom-hover">{% render 'icon-bookmark' %}</a>
+        <a href="#" class="custom-hover">{% render 'icon-handbag' %}</a>          
       </div>
     </div>
   </header>
