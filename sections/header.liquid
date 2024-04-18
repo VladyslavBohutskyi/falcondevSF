@@ -1,8 +1,31 @@
-<header>
-  <h2>Header</h2>
-</header>
+{{ 'header.css' | asset_url | stylesheet_tag }}
 
-
+<section class="s-header">
+  <header>
+    <div class="menu_ribbon"></div>
+    <div class="main-block">
+      <div class="main-block__search">
+        {% render 'icon-custom-search' %}
+        <p>Search</p>
+      </div>
+      <div class="main-block__menu">
+        <div class="main-block__menu_logo">
+          {% render 'logo-loro-piana' %}
+        </div>
+        <div class="main-block__menu_links">
+          {% for link in linklists.loro-menu.links -%}
+            {{ link.title | link_to: link.url }}
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="main-block__cart">
+        {% render 'icon-user' %}
+        {% render 'icon-bookmark' %}
+        {% render 'icon-handbag' %}
+      </div>
+    </div>
+  </header>
+</section>
 {% schema %}
   {
     "name": "Header",
