@@ -1,6 +1,11 @@
 @import "../node_modules/normalize.css/normalize";
 @import '../node_modules/flickity/css/flickity';
 
+.body-wrapper{
+	max-width: 1600px;
+	margin: auto;
+}
+
 .visually-hidden {
 	position: absolute !important;
 	overflow: hidden;

@@ -74,7 +74,7 @@
     <a class="skip-to-content-link visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
-
+    <div class="body-wrapper">
     {% section 'header' %}
 
     <main
@@ -86,6 +86,8 @@
     </main>
 
     {% section 'footer' %}
+    </div>
+
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
