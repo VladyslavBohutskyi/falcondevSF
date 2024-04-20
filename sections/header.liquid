@@ -48,6 +48,26 @@
         {% render 'icon-handbag' %}
       </div>
     </div>
+
+    {% comment %} Mobile menu nav {% endcomment %}
+
+    <div class="mobile-sidebar">
+      <div class="mobile-sidebar__nav">
+        <ul>
+          {% for link in linklists.loro-menu.links %}
+            <li>
+              <button class="mobile-nav__nav__button">
+                <span>{{ link.title }}</span>
+                <span class="button-arrow">{% render 'icon-arrow' %}</span>
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="mobile-nav__contact">
+
+      </div>
+    </div>
   </header>
 </s-header>
 {% schema %}
