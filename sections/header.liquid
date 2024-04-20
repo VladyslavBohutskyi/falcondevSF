@@ -1,9 +1,10 @@
 {{ 's-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 's-header.js' | asset_url }}" defer></script>
 
-<section class="s-header">
+<s-header class="s-header">
   <header>
     <div class="menu-ribbon"></div>
-    
+
     <div class="main-block">
       <div class="main-block__search">
         <button class="custom-hover">
@@ -13,12 +14,12 @@
       </div>
       <div class="main-block__menu">
         <div class="main-block__menu_logo">
-          <a href="/" class="custom-hover">{% render 'logo-loro-piana' %}</a> 
+          <a href="/" class="custom-hover">{% render 'logo-loro-piana' %}</a>
         </div>
         <nav class="main-block__menu_links">
           <ul>
             {% for link in linklists.loro-menu.links -%}
-                <li>{{ link.title | link_to: link.url }}</li>
+              <li>{{ link.title | link_to: link.url }}</li>
             {%- endfor %}
           </ul>
         </nav>
@@ -26,11 +27,29 @@
       <div class="main-block__cart">
         <a href="#" class="custom-hover">{% render 'icon-user' %}</a>
         <a href="#" class="custom-hover">{% render 'icon-bookmark' %}</a>
-        <a href="#" class="custom-hover">{% render 'icon-handbag' %}</a>          
+        <a href="#" class="custom-hover">{% render 'icon-handbag' %}</a>
+      </div>
+    </div>
+
+    {% comment %} Mobile menu {% endcomment %}
+
+    <div class="mobile-menu">
+      <div>
+        <span class="mobile-menu__btn">
+          {% render 'icon-hamburger' %}
+          {% render 'icon-close' %}
+        </span>
+      </div>
+      <div class="mobile-menu__logo">
+        <a href="/" class="custom-hover">{% render 'logo-loro-piana' %}</a>
+      </div>
+      <div class="mobile-menu__right">
+        {% render 'icon-custom-search' %}
+        {% render 'icon-handbag' %}
       </div>
     </div>
   </header>
-</section>
+</s-header>
 {% schema %}
   {
     "name": "Header",
