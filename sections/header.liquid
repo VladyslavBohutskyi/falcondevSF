@@ -19,7 +19,7 @@
         <nav class="main-block__menu_links">
           <ul>
             {% for link in linklists.loro-menu.links -%}
-              <li>{{ link.title | link_to: link.url }}</li>
+              <li class="{%  if link.active %}main-block__menu_links--active{% endif %}">{{ link.title | link_to: link.url }}</li>
             {%- endfor %}
           </ul>
         </nav>
