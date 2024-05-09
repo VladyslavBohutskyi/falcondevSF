@@ -5,5 +5,44 @@
 
 
 <product-card class="card product-card">
-  card111
+  <div class="card__top">
+    <a href="{{ product.url }}" class="card__top__image">
+      <img
+        src="
+          {% if product.selected_or_first_available_variant.featured_image.size > 0 %}
+            {{ product.selected_or_first_available_variant.featured_image | img_url: 'master' }}
+            {% else %}
+            {{ product.featured_image | img_url: 'master' }}
+          {% endif %}
+        "
+        alt="{{ product.title }}"
+      >
+    </a>
+  </div>
+  <div class="card__bottom">
+          <div class="card__bottom__info">
+            <span class="card__bottom__info--title">
+              {{ product.title }}
+            </span>
+            <span class="card__bottom__info--material">
+                {% if product.options_by_name['Material'].values %}
+                  <span>{{ product.options_by_name['Material'].values }}</span>
+                  {% else %}
+                    <span>Other</span>
+                {% endif %}
+            </span>
+          </div>
+          <div class="card__bottom__details">
+            <span class="card__bottom__info--price">
+              {{ product.price |  money }}
+            </span>
+            <span class="card__bottom__info--color">
+                {% if product.options_by_name['Color'].values -%}
+                  <span>{{ product.options_by_name['Color'].values }}</span>  
+                  {% else %}
+                  <span>Other</span>
+                {%- endif %}
+            </span>
+          </div>
+  </div>
 </product-card>

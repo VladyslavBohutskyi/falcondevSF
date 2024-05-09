@@ -19,12 +19,6 @@
         <nav class="main-block__menu_links">
           <ul>
             {% for link in linklists['loro-menu'].links -%}
-              <script>
-                  console.log({{ link.title |  json }});
-                  console.log({{ link.links |  json }});
-                  console.log({{ link.links.title |  json }});
-
-              </script>
               <li class="{%  if link.active %}main-block__menu_links--active{% endif %}">{{ link.title | link_to: link.url }}</li>
             {%- endfor %}
           </ul>
@@ -37,6 +31,14 @@
       </div>
     </div>
 
+
+    <div>
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+
+    
     {% comment %} Mobile menu {% endcomment %}
 
     <div class="mobile-menu">
