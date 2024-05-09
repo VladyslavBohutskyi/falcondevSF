@@ -18,7 +18,13 @@
         </div>
         <nav class="main-block__menu_links">
           <ul>
-            {% for link in linklists.loro-menu.links -%}
+            {% for link in linklists['loro-menu'].links -%}
+              <script>
+                  console.log({{ link.title |  json }});
+                  console.log({{ link.links |  json }});
+                  console.log({{ link.links.title |  json }});
+
+              </script>
               <li class="{%  if link.active %}main-block__menu_links--active{% endif %}">{{ link.title | link_to: link.url }}</li>
             {%- endfor %}
           </ul>
@@ -64,9 +70,7 @@
           {% endfor %}
         </ul>
       </div>
-      <div class="mobile-nav__contact">
-
-      </div>
+      <div class="mobile-nav__contact"></div>
     </div>
   </header>
 </s-header>

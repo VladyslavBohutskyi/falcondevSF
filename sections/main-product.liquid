@@ -1,0 +1,22 @@
+{{ 'main-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'main-product.js' | asset_url }}" defer></script>
+
+
+<main-product>
+  {% comment %} after auto formating don`t forget change "" on '' {% endcomment %}
+  <div class="test-card">
+    {% render 'product-card' %}
+  </div>
+</main-product>
+
+{% schema %}
+  {
+    "name": "Main Product",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Main Product"
+      }
+    ]
+  }
+{% endschema %}
