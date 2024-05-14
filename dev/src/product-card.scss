@@ -3,12 +3,16 @@
   flex-direction: column;
   height: 500px;
   width: 310px;
+  cursor: pointer;
+  &:hover .card__bottom{
+    transform: translateY(-75px);
+    transition: all 0.4s;
+  }
 
   &__top {
     width: 100%;
     height: 80%;
     overflow: hidden;
-    cursor: pointer;
 
     img {
       width: 100%;
@@ -24,12 +28,20 @@
   }
 
   &__bottom {
-    width: 100%;
-    height: 20%;
-    overflow: hidden;
+    text-align: center;
+    height: 108px;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #F7F5F1;
+    transition: all 0.4s;
     &__info{
       span{
         display: block;
+      }
+      &--material{
+        color: #9D5248;
       }
     }
     &__details{
@@ -38,7 +50,12 @@
       }
       &--price{}
       &--color{
-        
+        height: 12px;
+        width: 12px;
+        border: 1px solid black;
+        border-radius: 2px;
+        margin: auto;
+        margin-top: 5px;
       }
     }
   }

@@ -1,11 +1,11 @@
 {
   "current": {
+    "color_background": "#f7f5f1",
     "font_body": "sans-serif",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
-          
         }
       },
       "footer": {

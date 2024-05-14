@@ -33,15 +33,12 @@
             </span>
           </div>
           <div class="card__bottom__details">
-            <span class="card__bottom__info--price">
+            <span class="card__bottom__details--price">
               {{ product.price |  money }}
             </span>
-            <span class="card__bottom__info--color">
-                {% if product.options_by_name['Color'].values -%}
-                  <span>{{ product.options_by_name['Color'].values }}</span>  
-                  {% else %}
-                  <span>Other</span>
-                {%- endif %}
+            {% if product.options_by_name['Color'].values %}
+              <span class="card__bottom__details--color" style="background-color: {{ product.options_by_name['Color'].values }};">
+            {% endif %}
             </span>
           </div>
   </div>
