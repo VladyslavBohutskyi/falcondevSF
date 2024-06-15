@@ -5,12 +5,25 @@
 
 
 <product-card class="card product-card">
+  <script>
+    console.log({{ product.media[1].src | json }});
+  </script>
   <div class="card__top">
-    <a href="{{ product.url }}" class="card__top__image">
-      <img
+    <a href="{{ product.url }}">
+      <img class="card__top__image"
         src="
           {% if product.selected_or_first_available_variant.featured_image.size > 0 %}
             {{ product.selected_or_first_available_variant.featured_image | img_url: 'master' }}
+            {% else %}
+            {{ product.featured_image | img_url: 'master' }}
+          {% endif %}
+        "
+        alt="{{ product.title }}"
+      >
+      <img class="card__top__image--hover"
+        src="
+          {% if product.selected_or_first_available_variant.featured_image.size > 1 %}
+            {{ product.media[1] | img_url: 'master' }}
             {% else %}
             {{ product.featured_image | img_url: 'master' }}
           {% endif %}
